@@ -71,6 +71,7 @@ function create() {
 function collectStar(player, star){
 
     var score = 0;
+    var scroeText;
     star.kill();
     score++;
     scoreText.text = 'Susore: ' + score;
@@ -83,8 +84,6 @@ function update() {
     var starHit = game.physics.arcade.collide(stars, platforms);
     var overlaping = game.physics.arcade.overlap(player, stars, collectStar, null, this);
 
-
-    var scroeText;
 
     scroeText = game.add.text(16, 16, 'score: 0', {fontSize: '32px', fill: '#000'});
     player.body.velocity.x = 0;

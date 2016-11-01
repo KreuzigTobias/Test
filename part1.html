@@ -28,8 +28,8 @@ var platforms;
 var player;
 var stars;
 var cursors;
-var score = 0;
-var scoreText = 'Test:' + score;
+var score;
+var scoreText = 'Test: ' + score;
 
 function create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -71,7 +71,7 @@ function create() {
         star.body.bounce.y = 0.7 + Math.random() * 0.2;
     }
 
-    scroeText = game.add.text(16, 16, scoreText, {fontSize: '32px', fill: '#000'});
+
 
     cursors = game.input.keyboard.createCursorKeys();
 }
@@ -103,6 +103,7 @@ function update() {
         player.body.velocity.y = - 350;
     }
 
+    scroeText = game.add.text(16, 16, scoreText, {fontSize: '32px', fill: '#000'});
 }
 
 function collectStar(player, star){

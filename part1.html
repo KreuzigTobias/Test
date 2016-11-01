@@ -24,13 +24,19 @@ function preload() {
     //game.load.image('dude', 'assets/dude.png');
 }
 
+var platforms;
+var player;
+var stars;
+var cursors;
+var score = 0;
+var scoreText;
 
 function create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
     game.add.sprite(0,0,'sky');
 
-    var platforms = game.add.group();
+    platforms = game.add.group();
     platforms.enableBody = true;
 
     var ground = platforms.create(0, game.world.height - 64, 'ground')
@@ -65,7 +71,7 @@ function create() {
         star.body.bounce.y = 0.7 + Math.random() * 0.2;
     }
 
-    var scroeText = game.add.text(16, 16, 'score: 0', {fontSize: '32px', fill: '#000'});
+    scroeText = game.add.text(16, 16, 'score: 0', {fontSize: '32px', fill: '#000'});
 
     cursors = game.input.keyboard.createCursorKeys();
 }
@@ -99,8 +105,6 @@ function update() {
 
 }
 
-var score = 0;
-//var scoreText = '';
 function collectStar(player, star){
     star.kill();
     score++;

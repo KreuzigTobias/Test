@@ -29,7 +29,7 @@ var player;
 var stars;
 var cursors;
 var score = 0;
-var scoreText;
+var scoreText = 'Test:' + score;
 
 function create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -71,7 +71,7 @@ function create() {
         star.body.bounce.y = 0.7 + Math.random() * 0.2;
     }
 
-    scroeText = game.add.text(16, 16, 'score: 0', {fontSize: '32px', fill: '#000'});
+    scroeText = game.add.text(16, 16, scoreText, {fontSize: '32px', fill: '#000'});
 
     cursors = game.input.keyboard.createCursorKeys();
 }
@@ -108,7 +108,7 @@ function update() {
 function collectStar(player, star){
     star.kill();
     score++;
-    scoreText.text = 'Susore: ' + score;
+    //scoreText.text = 'Susore: ' + score;
 }
 </script>
 
